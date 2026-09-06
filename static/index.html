@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#b62d24" />
+    <meta name="description" content="Forno Rosso — pizzas artesanais feitas para compartilhar." />
+    <title>Forno Rosso | Pizzas artesanais</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#cardapio">Ir para o cardápio</a>
+
+    <header class="site-header" id="topo">
+      <div class="container nav-wrap">
+        <a class="brand" href="#topo" aria-label="Forno Rosso, início">
+          <span class="brand-mark" aria-hidden="true">FR</span>
+          <span><strong>FORNO</strong> ROSSO<small>PIZZA &amp; AMORE</small></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" aria-label="Navegação principal">
+          <a class="active" href="#topo">Início</a>
+          <a href="#cardapio">Cardápio</a>
+          <a href="#nossa-historia">Nossa história</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="account-button" type="button" data-open-auth>
+            <span class="user-icon" aria-hidden="true">◌</span>
+            <span data-account-label>Entrar</span>
+          </button>
+          <button class="cart-button" type="button" data-open-cart aria-label="Abrir carrinho">
+            <span aria-hidden="true">🛒</span>
+            <span class="cart-text">Carrinho</span>
+            <b data-cart-count>0</b>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow"><span></span> Pizzaria artesanal desde 1998</p>
+            <h1 id="hero-title">Uma fatia de<br /><em>felicidade</em> chegou.</h1>
+            <p class="hero-text">Massa de longa fermentação, ingredientes frescos e aquele sabor que reúne todo mundo à mesa.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#cardapio">Pedir agora <span>→</span></a>
+              <a class="button button-ghost" href="#nossa-historia">Conheça o Forno</a>
+            </div>
+            <div class="hero-details">
+              <div><strong>45 min</strong><span>tempo médio</span></div>
+              <div><strong>4,9 <i>★</i></strong><span>clientes felizes</span></div>
+              <div><strong>100%</strong><span>feito à mão</span></div>
+            </div>
+          </div>
+          <div class="hero-art reveal" aria-label="Pizza artesanal saindo do forno" role="img">
+            <div class="sun"></div>
+            <div class="leaf leaf-one">✦</div><div class="leaf leaf-two">✦</div>
+            <div class="pizza-shadow"></div>
+            <div class="pizza-plate"></div>
+            <div class="pizza-visual">
+              <span class="basil b1"></span><span class="basil b2"></span><span class="basil b3"></span>
+              <span class="tomato t1"></span><span class="tomato t2"></span><span class="tomato t3"></span><span class="tomato t4"></span>
+              <span class="cheese c1"></span><span class="cheese c2"></span><span class="cheese c3"></span>
+            </div>
+            <div class="hero-badge"><span>✦</span><strong>Receita<br />da casa</strong></div>
+            <p class="art-caption">MARGHERITA<br /><i>clássica, sempre.</i></p>
+          </div>
+        </div>
+        <div class="hero-wave" aria-hidden="true"></div>
+      </section>
+
+      <section class="benefits" aria-label="Nossos diferenciais">
+        <div class="container benefits-grid">
+          <article><span class="benefit-icon">◒</span><div><strong>Fermentação lenta</strong><p>48 horas para uma massa leve e saborosa.</p></div></article>
+          <article><span class="benefit-icon">♧</span><div><strong>Ingredientes de verdade</strong><p>Seleção fresca todos os dias.</p></div></article>
+          <article><span class="benefit-icon">♨</span><div><strong>Forno a lenha</strong><p>O toque defumado que faz diferença.</p></div></article>
+          <article><span class="benefit-icon">♡</span><div><strong>Feito com carinho</strong><p>Da nossa família para a sua.</p></div></article>
+        </div>
+      </section>
+
+      <section class="menu-section section" id="cardapio" aria-labelledby="menu-title">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="eyebrow"><span></span> Nosso cardápio <span></span></p>
+            <h2 id="menu-title">Escolha seu <em>momento</em> favorito</h2>
+            <p>Clássicas ou autorais: cada pizza começa com a nossa massa artesanal.</p>
+          </div>
+          <div class="menu-tabs" role="tablist" aria-label="Categorias do cardápio">
+            <button class="menu-tab active" type="button" data-filter="todos">Todas</button>
+            <button class="menu-tab" type="button" data-filter="classicas">Clássicas</button>
+            <button class="menu-tab" type="button" data-filter="especiais">Especiais</button>
+            <button class="menu-tab" type="button" data-filter="vegetarianas">Vegetarianas</button>
+          </div>
+          <div class="menu-grid" data-menu-grid aria-live="polite"></div>
+          <div class="center-action"><button class="button button-outline" type="button" data-show-all>Ver cardápio completo <span>↓</span></button></div>
+        </div>
+      </section>
+
+      <section class="story section" id="nossa-historia" aria-labelledby="story-title">
+        <div class="container story-grid">
+          <div class="story-visual reveal" aria-hidden="true">
+            <div class="arch-frame"><div class="chef-hat">♨</div><div class="flour f1"></div><div class="flour f2"></div><div class="rolling-pin"></div></div>
+            <div class="years-badge"><strong>26</strong><span>anos de<br />tradição</span></div>
+          </div>
+          <div class="story-copy reveal">
+            <p class="eyebrow"><span></span> Nossa história</p>
+            <h2 id="story-title">A tradição italiana,<br /><em>com alma brasileira.</em></h2>
+            <p>O Forno Rosso nasceu da vontade de transformar uma boa pizza em um grande encontro. Nossa receita viajou da pequena cozinha da nonna até aqui, guardando o que importa: tempo, ingredientes honestos e afeto.</p>
+            <p>Hoje cada disco de massa continua sendo aberto à mão, como no primeiro dia.</p>
+            <a class="text-link" href="#contato">Venha nos conhecer <span>→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="delivery-banner">
+        <div class="container delivery-content">
+          <span class="delivery-spark" aria-hidden="true">✦</span>
+          <div><p class="eyebrow light"><span></span> Hoje tem pizza</p><h2>Seu momento favorito<br />começa <em>aqui.</em></h2></div>
+          <a class="button button-cream" href="#cardapio">Montar meu pedido <span>→</span></a>
+          <span class="delivery-spark last" aria-hidden="true">✦</span>
+        </div>
+      </section>
+
+      <section class="contact section" id="contato" aria-labelledby="contact-title">
+        <div class="container contact-grid">
+          <div><p class="eyebrow"><span></span> Visite o Forno</p><h2 id="contact-title">Pizza boa é<br /><em>pizza compartilhada.</em></h2></div>
+          <address>
+            <div><span>⌖</span><p><strong>Rua das Oliveiras, 128</strong><br />Vila Madalena · São Paulo, SP</p></div>
+            <div><span>◷</span><p><strong>Terça a domingo</strong><br />18h às 23h30</p></div>
+          </address>
+          <a class="button button-outline" href="tel:+5511999999999">Ligar para a pizzaria</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <a class="brand brand-footer" href="#topo"><span class="brand-mark">FR</span><span><strong>FORNO</strong> ROSSO<small>PIZZA &amp; AMORE</small></span></a>
+        <p>Feito com massa, fogo e muito amore.</p>
+        <div class="socials"><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="WhatsApp">wa</a></div>
+      </div>
+      <div class="container footer-bottom"><span>© 2026 Forno Rosso. Todos os direitos reservados.</span><a href="#topo">Voltar ao topo ↑</a></div>
+    </footer>
+
+    <aside class="cart-drawer" aria-label="Seu carrinho" aria-hidden="true" data-cart-drawer>
+      <div class="drawer-head"><div><p class="eyebrow"><span></span> Seu pedido</p><h2>Seu carrinho</h2></div><button class="icon-button" type="button" data-close-cart aria-label="Fechar carrinho">×</button></div>
+      <div class="cart-items" data-cart-items></div>
+      <div class="cart-empty" data-cart-empty><span>🍕</span><h3>Seu carrinho está vazio</h3><p>Escolha uma pizza especial para começar.</p><button class="button button-primary" type="button" data-close-cart>Ver cardápio</button></div>
+      <div class="cart-footer" data-cart-footer>
+        <div class="subtotal"><span>Subtotal</span><strong data-cart-total>R$ 0,00</strong></div>
+        <p class="delivery-note">A entrega e o pagamento são combinados após o pedido.</p>
+        <button class="button button-primary checkout-button" type="button" data-checkout>Finalizar pedido <span>→</span></button>
+      </div>
+    </aside>
+    <div class="scrim" data-scrim></div>
+
+    <dialog class="auth-dialog" data-auth-dialog>
+      <button class="dialog-close" type="button" data-close-auth aria-label="Fechar">×</button>
+      <div class="auth-art"><span>FORNO<br /><b>ROSSO</b></span><p>Pizza, vinho<br />e boa companhia.</p><i>✦</i></div>
+      <div class="auth-panel">
+        <div class="auth-tabs"><button class="auth-tab active" type="button" data-auth-view="login">Entrar</button><button class="auth-tab" type="button" data-auth-view="register">Criar conta</button></div>
+        <div class="auth-intro"><p class="eyebrow"><span></span> Bem-vindo</p><h2 data-auth-title>Que bom ter você aqui.</h2><p data-auth-text>Entre para pedir sua pizza e acompanhar seus pedidos.</p></div>
+        <form class="auth-form" data-login-form>
+          <label>E-mail<input required type="email" name="email" autocomplete="email" placeholder="voce@email.com" /></label>
+          <label>Senha<input required type="password" name="senha" autocomplete="current-password" minlength="6" placeholder="Sua senha" /></label>
+          <button class="button button-primary" type="submit">Entrar na minha conta <span>→</span></button>
+        </form>
+        <form class="auth-form hidden" data-register-form>
+          <label>Seu nome<input required type="text" name="nome" autocomplete="name" placeholder="Como podemos chamar você?" /></label>
+          <label>E-mail<input required type="email" name="email" autocomplete="email" placeholder="voce@email.com" /></label>
+          <label>Senha<input required type="password" name="senha" autocomplete="new-password" minlength="6" placeholder="Crie uma senha" /></label>
+          <button class="button button-primary" type="submit">Criar minha conta <span>→</span></button>
+        </form>
+        <p class="form-message" data-auth-message role="status"></p>
+      </div>
+    </dialog>
+
+    <dialog class="orders-dialog" data-orders-dialog>
+      <button class="dialog-close" type="button" data-close-orders aria-label="Fechar">×</button>
+      <div class="orders-heading"><button class="orders-logout" type="button" data-logout>Sair da conta</button><p class="eyebrow"><span></span> Acompanhe</p><h2>Meus pedidos</h2><p>Veja as pizzas que já estão a caminho da sua mesa.</p></div>
+      <div class="orders-list" data-orders-list></div>
+    </dialog>
+
+    <div class="toast-region" aria-live="polite" aria-atomic="true" data-toast-region></div>
+    <button class="floating-orders hidden" type="button" data-open-orders>Meus pedidos <span>→</span></button>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

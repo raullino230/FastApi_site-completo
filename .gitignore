@@ -1,0 +1,17 @@
+# Ambiente virtual e cache Python
+Venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Segredos e banco local
+.env
+*.db
+
+# Ferramentas e sistema operacional
+.pytest_cache/
+.mypy_cache/
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
