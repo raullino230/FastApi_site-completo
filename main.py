@@ -37,7 +37,3 @@ async def frontend():
     """Entrega a página principal da pizzaria na rota raiz."""
     return FileResponse(BASE_DIR / "static" / "index.html")
 
-@app.get("/google-verification.html", include_in_schema=False)
-async def google_verification():
-    """Serve o arquivo de verificação do Google Search Console."""
-    return FileResponse("google-verification.html")
