@@ -12,6 +12,7 @@ from fastapi.staticfiles import StaticFiles
 from passlib.context import CryptContext
 from dotenv import load_dotenv
 import os
+from models import Base, db
 
 load_dotenv()
 Secret_Key = os.getenv("Secret_Key")
@@ -19,6 +20,9 @@ ALGORITHM = os.getenv("ALGORITHM")
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
 
 app = FastAPI()
+# Cria as tabelas automaticamente no startup
+Base.metadata.create_all(bind=db)
+
 BASE_DIR = Path(__file__).resolve().parent
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
