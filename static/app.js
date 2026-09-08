@@ -127,7 +127,21 @@ function showToast(message, type = "success") {
 }
 
 function apiError(payload) {
-  if (typeof payload?.detail === "string") return payload.detail;
+  if (!payload) return "Não foi possível concluir a ação. Tente novamente.";
+
+  if (typeof payload.detail === "string") return payload.detail;
+  if (Array.isArray(payload.detail)) {
+    const first = payload.detail[0];
+    if (typeof first === "string") return first;
+    if (first?.msg) return first.msg;
+    if (first?.message) return first.message;
+  }
+  if (payload.detail && typeof payload.detail === "object") {
+    if (typeof payload.detail.msg === "string") return payload.detail.msg;
+    if (typeof payload.detail.message === "string") return payload.detail.message;
+  }
+  if (typeof payload.message === "string") return payload.message;
+
   return "Não foi possível concluir a ação. Tente novamente.";
 }
 
