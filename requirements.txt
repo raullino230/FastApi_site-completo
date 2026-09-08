@@ -6,6 +6,7 @@ uvicorn==0.52.4
 SQLAlchemy==2.0.52
 SQLAlchemy-Utils==0.42.1
 alembic==1.19.1
+psycopg2-binary==2.9.9
 
 # Autenticação e configuração
 bcrypt==5.0.0
