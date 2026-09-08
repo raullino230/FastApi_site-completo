@@ -1,18 +1,30 @@
-"""Modelos SQLAlchemy e configuração do banco de dados SQLite."""
+"""Modelos SQLAlchemy e configuração do banco de dados."""
 
+import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine, Column, String, Integer, Boolean, Float, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
-from sqlalchemy_utils import ChoiceType
 
+load_dotenv()
 
-#Conexão com o banco, criada:
-db = create_engine("sqlite:///banco.db")
+# Conexão com o banco
+# Em produção (Vercel): usa DATABASE_URL (PostgreSQL)
+# Em desenvolvimento: usa SQLite local
+DATABASE_URL = os.getenv("DATABASE_URL")
 
+if DATABASE_URL:
+    # Produção: PostgreSQL no Neon
+    if DATABASE_URL.startswith("postgres://"):
+        DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+    db = create_engine(DATABASE_URL)
+else:
+    # Desenvolvimento: SQLite local
+    db = create_engine("sqlite:///banco.db")
 
-#Criar a base do banco de dados, criada:
+# Criar a base do banco de dados
 Base = declarative_base()
 
-#criar as classe/tabelas do banco de dados:
+# Criar as classes/tabelas do banco de dados:
 
 class Usuario(Base):
     """Usuário que pode autenticar-se e realizar pedidos."""
@@ -20,7 +32,7 @@ class Usuario(Base):
 
     id = Column("id", Integer, primary_key=True, autoincrement=True)
     nome = Column("nome", String)
-    email = Column("email", String, nullable=False)
+    email = Column("email", String, nullable=False, unique=True)
     senha = Column("senha", String, nullable=False)
     ativo = Column("ativo", Boolean)
     admin = Column("admin", Boolean, default=False)
@@ -30,7 +42,6 @@ class Usuario(Base):
         self.nome = nome
         self.email = email
         self.senha = senha
-        self.senha = senha
         self.ativo = ativo
         self.admin = admin
 
@@ -39,15 +50,9 @@ class Pedido(Base):
     """Pedido de pizzas associado a um usuário."""
     __tablename__ = "pedidos"
 
-   # status_pedidos = (
-  #      ("Pendente", "Pendente"),
- #       ("Cancelado", "Cancelado"),
-#        ("Finalizado", "Finalizado")
-#   )
-
     id = Column("id", Integer, primary_key=True, autoincrement=True)
-    status = Column("status", String )
-    usuario = Column("usuario",ForeignKey("usuarios.id"))
+    status = Column("status", String)
+    usuario = Column("usuario", ForeignKey("usuarios.id"))
     preço = Column("preço", Float)
     itens = relationship("ItemPedido", cascade="all, delete")
 
@@ -70,7 +75,7 @@ class ItemPedido(Base):
     quantidade = Column("quantidade", Integer)
     sabor = Column("sabor", String)
     tamanho = Column("tamanho", String)
-    preço_unitario = Column("preço_unitario", Float) 
+    preço_unitario = Column("preço_unitario", Float)
     pedido = Column("pedido", ForeignKey("pedidos.id"))
 
     def __init__(self, quantidade, sabor, tamanho, preço_unitario, pedido):
@@ -80,10 +85,3 @@ class ItemPedido(Base):
         self.tamanho = tamanho
         self.preço_unitario = preço_unitario
         self.pedido = pedido
-
-
-
-#migrar o banco de dados
-
-#criar a migração: alembic revision --autogenerate -m "Adicionando  itens na tabela Pedido"
-#executar a migração: alembic upgrade head
